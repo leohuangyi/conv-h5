@@ -16,9 +16,9 @@ conv-h5是一个使用Swiper、Animate.css便捷构建h5活动页的工具。它
 conv-ht使用gulp来构建，你可以进入项目根目录，然后执行以下命令，即可在dist目录得到适用于生产环境的资源文件。
 
 ***
-npm install --global gulp
-npm install
-gulp build
+    npm install --global gulp
+    npm install
+    gulp build
 ***
 
 # Contributing
