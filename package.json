@@ -1,0 +1,19 @@
+{
+  "name": "conv-h5",
+  "version": "1.0.0",
+  "description": "使用Swiper、Animate.css便捷的构建h5活动页",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "~3.9.1",
+    "gulp-rename": "~1.2.2"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.0"
+  }
+}
