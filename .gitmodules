@@ -1,0 +1,6 @@
+[submodule "src/libs/Swiper"]
+	path = src/libs/Swiper
+	url = git@github.com:daneden/animate.css.git
+[submodule "src/libs/animate.css"]
+	path = src/libs/animate.css
+	url = git@github.com:daneden/animate.css.git
