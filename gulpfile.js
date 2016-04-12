@@ -10,7 +10,7 @@ gulp.task('clean', function(){
     del('./dist/*');
 });
 gulp.task('js', function(){
-    gulp.src('./src/libs/Swiper/dist/js/*.min.js')
+    gulp.src(['./src/libs/Swiper/dist/js/jquery.min.js'])
         .pipe(gRename(function(path){
             var basename = 'conv-h5' + path.basename.slice(6);
             basename = basename.slice(0, -3);

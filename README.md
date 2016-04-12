@@ -22,4 +22,5 @@ conv-ht使用gulp来构建，你可以进入项目根目录，然后执行以下
 ***
 
 # Contributing
-项目主要在gulpfile.js文件中对Swiper、Animate.css进行了整合，开发者可以参照这两个项目的文档，在./src/libs中进行个性化定制，比如减少Animate.css的生成模块，从而减少css文件的体积等。
+/src/libs/conv-h5.js 提供了animate函数的实现
+/gulpfile.js文件中对Swiper、Animate.css进行了整合,开发者可以参照这两个项目的文档，在./src/libs/中进行相应个性化定制，比如减少Animate.css的生成模块，从而减少css文件的体积等。
