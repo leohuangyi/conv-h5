@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="/dist/conv-h5.1.0.0.min.css" />
+    <style type="text/css">
+        html,body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        .swiper-container{
+            height: 100%;
+            width: 100%;
+        }
+        .slide1{
+
+        }
+    </style>
+    <title>H5 Demo1</title>
+</head>
+<body>
+    <div id="J-swiper1" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <h1 data-duration="2s" data-delay="0" data-animation="flash pulse" class="will-animated title1">这是标题</h1>
+            </div>
+            <div class="swiper-slide slide2">Slide 2</div>
+            <div class="swiper-slide slide3">Slide 3</div>
+        </div>
+    </div>
+    <script src="/javascripts/zepto.min.js"></script>
+    <script src="/dist/conv-h5.jquery.1.0.0.min.js"></script>
+    <script>
+        var swiper1 = new Swiper ('#J-swiper1', {
+
+            // Optional parameters
+            direction: 'vertical',
+            loop: true,
+            onTransitionEnd: function(){
+                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+
+                $conv_h5.animate($('.swiper-slide-active .will-animated'));
+
+            }
+        });
+    </script>
+</body>
+</html>
