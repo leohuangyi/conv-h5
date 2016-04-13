@@ -1,0 +1,6 @@
+[submodule "src/public/animate.css"]
+	path = src/public/animate.css
+	url = git@github.com:daneden/animate.css.git
+[submodule "src/public/Swiper"]
+	path = src/public/Swiper
+	url = git@github.com:nolimits4web/Swiper.git

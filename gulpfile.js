@@ -3,30 +3,30 @@ var gulpConcat = require('gulp-concat');
 var gRename = require('gulp-rename');
 var del = require('del');
 var packageConfig = require('./package.json');
+var uglify = require('gulp-uglify');
 
-gulp.task('build', ['clean', 'css', 'js']);
+gulp.task('build', ['clean', 'css',  'js']);
 
 gulp.task('clean', function(){
     del('./dist/*');
 });
-gulp.task('conv-h5-build', function(){
-    gulp.src('./src/libs/conv-h5.js')
-        .pipe();
-});
-gulp.task('js', function(){
-    gulp.src(['./src/libs/Swiper/dist/js/Swiper.jquery.min.js'])
+gulp.task('conv-h5-build', function(cb){
+    return gulp.src('./src/conv-h5.js')
+        .pipe(uglify())
         .pipe(gRename(function(path){
-            var basename = 'conv-h5' + path.basename.slice(6);
-            basename = basename.slice(0, -3);
-            path.basename = basename;
-            path.extname = packageConfig.version + '.min.js'
+            path.extname = '.' + packageConfig.version + '.source.min.js'
         }))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist'));
+});
+gulp.task('js', ['conv-h5-build'], function(){
+    gulp.src(['./dist/conv-h5.'+packageConfig.version+'.source.min.js','./src/public/Swiper/dist/js/Swiper.jquery.min.js'])
+        .pipe(gulpConcat('conv-h5.'+packageConfig.version+'.min.js'))
+        .pipe(gulp.dest('./dist'));
 });
 gulp.task('css', function(){
     gulp.src([
-        './src/libs/Swiper/dist/css/swiper.min.css',
-        './src/libs/animate.css/animate.min.css'
+        './src/public/Swiper/dist/css/swiper.min.css',
+        './src/public/animate.css/animate.min.css'
     ]).pipe(
         gulpConcat('conv-h5.'+packageConfig.version+'.min.css')
     ).pipe(gulp.dest('./dist/'));

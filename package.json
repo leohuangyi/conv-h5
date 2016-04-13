@@ -11,7 +11,8 @@
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "~3.9.1",
-    "gulp-rename": "~1.2.2"
+    "gulp-rename": "~1.2.2",
+    "gulp-uglify": "^1.5.3"
   },
   "dependencies": {
     "gulp-concat": "^2.6.0"

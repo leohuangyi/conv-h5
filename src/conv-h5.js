@@ -1,5 +1,6 @@
 /**
  * Created by Leo on 16/4/12.
+ * conv-h5
  */
 (function( global, factory ) {
     if ( typeof module === "object" && typeof module.exports === "object" ) {
