@@ -6,7 +6,9 @@ var packageConfig = require('./package.json');
 var uglify = require('gulp-uglify');
 
 gulp.task('build', ['clean', 'css',  'js']);
-
+gulp.task('dev', function(){
+    gulp.watch('./src/conv-h5.js', ['js']);
+});
 gulp.task('clean', function(){
     del('./dist/*');
 });
