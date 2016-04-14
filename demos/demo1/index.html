@@ -1,22 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="/dist/conv-h5.1.0.0.min.css" />
     <style type="text/css">
         html,body{
+            font-size: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
             width: 100%;
+            max-width: 40rem;
+        }
+        .slide1,
+        .slide2,
+        .slide3,
+        .slide4{
+            background-repeat: no-repeat;
+            background-image: url(./bg.jpg);
+            background-size: cover;
+            color: #fff;
         }
         .swiper-container{
             height: 100%;
             width: 100%;
         }
         .slide1{
+            position: relative;
+        }
+        .slide1 .title1{
+            text-align: center;
+        }
+        .slide1 .title2{
+            position: absolute;
+            left: 0;
+            right: 0;
+            color: #eee;
+            bottom: 2rem;
+            text-align: center;
+        }
+        .slide1 .content-c{
+            left: 0;
+            right: 0;
+            top: 35%;
+            position: absolute;
+            color: #eee;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .table-box{
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+        .cell-box{
+            display: table-cell;
+            height: 100%;
+            width: 100%;
+            vertical-align: middle;
+        }
+        .slide2 .content{
+            position: relative;
+            margin: 0 1rem;
+        }
+        .slide2 .content .con{
+            font-size: 1rem;
+            padding: 2rem;
+            position: relative;
+            line-height: 1.6;
+            z-index: 2;
+        }
+        .slide2 .content .bg{
+            background-color: #000;
+            opacity: .4;
+            position: absolute;
+            width: 100%;
+            height: 100%;
 
+            z-index: 1;
         }
     </style>
     <title>H5 Demo1</title>
@@ -25,25 +87,41 @@
     <div id="J-swiper1" class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide slide1">
-                <h1 data-duration="2s" data-delay="0" data-animation="flash pulse" class="will-animated title1">这是标题</h1>
+                <h1 data-duration="1" data-delay="0" data-animation="bounceIn" class="will-animated title1">Conv-h5</h1>
+                <h1 data-duration="1.5" data-delay="0.5" data-animation="rotateIn" class="will-animated content-c">
+                    To be <br/>
+                    Convenient
+                </h1>
+                <h4 data-duration="1" data-delay="1.5" data-animation="lightSpeedIn" class="will-animated title2">便捷的H5活动页制作库</h4>
             </div>
-            <div class="swiper-slide slide2">Slide 2</div>
-            <div class="swiper-slide slide3">Slide 3</div>
+            <div class="swiper-slide slide2">
+                <div class="table-box">
+                    <div class="cell-box">
+                        <div class="content">
+                            <div data-animation="swing" class="bg will-animated"></div>
+                            <div data-duration="1.5" data-delay="1" data-animation="zoomIn" class="con will-animated">
+                                Conv-h5是一个使用Swiper、Animate.css便捷构建H5活动页的工具。
+                                它将开源项目Swiper、Animate.css的进行合并，同时提供了$conv_h5.animate()使Swiper和Animate.css无缝链接。
+                                使用它开发者可以便捷的编写出html5活动页。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="swiper-pagination"></div>
     </div>
     <script src="/javascripts/zepto.min.js"></script>
-    <script src="/dist/conv-h5.jquery.1.0.0.min.js"></script>
+    <script src="/dist/conv-h5.1.0.0.min.js"></script>
     <script>
         var swiper1 = new Swiper ('#J-swiper1', {
-
-            // Optional parameters
             direction: 'vertical',
-            loop: true,
-            onTransitionEnd: function(){
-                var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-
-                $conv_h5.animate($('.swiper-slide-active .will-animated'));
-
+            loop: false,
+            pagination: '.swiper-pagination',
+            onTransitionStart: function(swiper, transition){
+                setTimeout(function(){
+                    $conv_h5.animate($('.swiper-slide-active .will-animated'));
+                }, transition)
             }
         });
     </script>
