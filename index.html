@@ -29,9 +29,9 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a id="conv-h5" class="anchor" href="#conv-h5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>conv-h5</h1>
+<a id="conv-h5" class="anchor" href="#conv-h5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conv-h5</h1>
 
-<p>conv-h5是一个使用Swiper、Animate.css便捷构建h5活动页的工具。它将开源项目Swiper、Animate.css的资源文件合并起来生成新的资源文件，方便用户直接引入。</p>
+<p>Conv-h5是一个使用Swiper、Animate.css便捷构建H5活动页的库。它将开源项目Swiper、Animate.css的进行整合，同时提供了$conv_h5.animate()使Swiper和Animate.css可以无缝链接。使用它开发者可以便捷的编写出html5活动页。</p>
 
 <h1>
 <a id="use" class="anchor" href="#use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use</h1>
@@ -39,13 +39,37 @@
 <hr>
 
 <pre><code>&lt;link href="conv-h5.1.0.0.min.css" type="text/css" /&gt;
+&lt;script src="zepto.min.js"&gt;&lt;/script&gt;
 &lt;script src="conv-h5.1.0.0.min.js"&gt;&lt;/script&gt;
+
+//html
+&lt;div id="J-swiper1" class="swiper-container"&gt;
+    &lt;div class="swiper-wrapper"&gt;
+        &lt;div class="swiper-slide slide1"&gt;
+                &lt;h1 data-duration="2s" data-delay="0" data-animation="bounceIn" class="will-animated"&gt;这里将会动哦&lt;/h1&gt;&lt;div id="J-swiper1" class="swiper-container"&gt;
+        &lt;/div&gt;
+        &lt;div class="swiper-slide slide2"&gt;
+                &lt;h1 data-duration="2s" data-delay="0" data-animation="bounceIn" class="will-animated"&gt;这里将会动哦&lt;/h1&gt;&lt;div id="J-swiper1" class="swiper-container"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+//js
+var swiper1 = new Swiper ('#J-swiper1', {
+    direction: 'vertical',
+    loop: true,
+    pagination: '.swiper-pagination',
+    onTransitionStart: function(){
+        $conv_h5.animate($('.swiper-slide-active .will-animated'));
+    }
+});
 </code></pre>
 
 <hr>
 
 <ul>
-<li><a href="http://leohuangyi.github.com/conv-h5">Demo</a></li>
+<li><a href="http://leohuangyi.github.io/conv-h5/demos/demo1">Demo</a></li>
 <li><a href="http://idangero.us/swiper/">Swiper官网</a></li>
 <li><a href="https://daneden.github.io/animate.css/">Animate.css官网</a></li>
 </ul>
@@ -53,13 +77,13 @@
 <h1>
 <a id="dist" class="anchor" href="#dist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dist</h1>
 
-<p>conv-ht使用gulp来构建，你可以进入项目根目录，然后执行以下命令，即可在dist目录得到适用于生产环境的资源文件。</p>
+<p>conv-h5使用gulp来构建，你可以进入项目根目录，然后执行以下命令，即可在dist目录得到适用于生产环境的资源文件。</p>
 
 <hr>
 
-<pre><code>npm install --global gulp
-npm install
-gulp build
+<pre><code>npm install
+gulp build #生产环境
+gulp dev #开发
 </code></pre>
 
 <hr>
@@ -67,7 +91,17 @@ gulp build
 <h1>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h1>
 
-<p>项目主要在gulpfile.js文件中对Swiper、Animate.css进行了整合，开发者可以参照这两个项目的文档，在./src/libs中进行个性化定制，比如减少Animate.css的生成模块，从而减少css文件的体积等。</p>
+<ul>
+<li>/src/conv-h5.js 提供了animate函数的实现</li>
+<li>/gulpfile.js文件中对Swiper、Animate.css进行了整合,开发者可以参照这两个项目的文档，在./src/libs/中进行相应个性化定制，比如减少Animate.css的生成模块，从而减少css文件的体积等</li>
+</ul>
+
+<h1>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Todo</h1>
+
+<ul>
+<li>现在暂时只能给一个动画元素设置一类动画(可以多种动画类型，但是都是同时发生)，后期需要实现一个元素可以添加多类动画，可以不同时发生，如滑入，然后旋转，然后再淡出等</li>
+</ul>
         </section>
 
         <aside id="sidebar">
